@@ -11,23 +11,37 @@
     android:orientation="vertical"
     tools:context="com.example.azurescarlet.belajarlistview.MainActivity">
 
-    <LinearLayout
+
+
+    <EditText
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:id="@+id/tambahedittext" />
+
+    <Button
+        android:text="tambah"
         android:layout_width="wrap_content"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Kata" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/btntambah"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Kata"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mylistview"></ListView>
+            android:id="@+id/mylistview"
+            tools:listitem="@layout/deflist"></ListView>
+
     </LinearLayout>
+
 </LinearLayout>

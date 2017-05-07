@@ -9,35 +9,48 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by azurescarlet on 7/5/17.
  */
 
-public class MyAdapter extends ArrayAdapter<String> {
-
+public class MyAdapter extends ArrayAdapter<DataBahasa>{
+    private ArrayList<DataBahasa> bhs;
 
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater theinflater = LayoutInflater.from(getContext());
+        View theview = convertView;
+        if (theview == null) {
+            LayoutInflater theinflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View theview = theinflater.inflate(R.layout.row_layout,parent,false);
+            theview = theinflater.inflate(R.layout.row_layout,null);
+        }
 
-        String listpemrograman = getItem(position);
+        DataBahasa dtbhs = bhs.get(position);
 
-        TextView thetextview = (TextView) theview.findViewById(R.id.textviewprogramming);
+        if (dtbhs != null){
+            TextView thetextview = (TextView) theview.findViewById(R.id.textviewprogramming);
+            thetextview.setText(dtbhs.getbhs());
 
-        thetextview.setText(listpemrograman);
+            ImageView theimg = (ImageView) theview.findViewById(R.id.imageviewprogramming);
 
-        ImageView theimg = (ImageView) theview.findViewById(R.id.imageviewprogramming);
-
-        theimg.setImageResource(R.drawable.usricon);
+            theimg.setImageResource(R.drawable.usricon);
+        }
 
         return theview;
     }
 
-    public MyAdapter(Context context, String[] Values) {
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
+
+
+    public MyAdapter(Context context, ArrayList<DataBahasa>Values) {
         super(context,R.layout.row_layout, Values);
+        this.bhs = Values;
     }
 
 }
