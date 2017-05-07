@@ -1,5 +1,6 @@
 package com.example.azurescarlet.belajarlistview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
 
     protected ArrayList<DataBahasa> listpemrogramanarr = new ArrayList<DataBahasa>();
-    protected String[] listpemrograman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         mylistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String listdipilih = "Anda memilih " + String.valueOf(parent.getItemAtPosition(position));
+                listpemrogramanarr.set(position,new DataBahasa("ABC"));
+                String listdipilih = "Anda memilih " + Integer.toString(position);
+
                 Toast.makeText(MainActivity.this, listdipilih, Toast.LENGTH_SHORT).show();
             }
         });
@@ -69,5 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         mylistview.setAdapter(adapternya);
         adapternya.notifyDataSetChanged();
+    }
+
+    public void tesklikaja(View V){
+        Intent edtlayout = new Intent(this, ActivityEditBahasa.class);
+        startActivity(edtlayout);
     }
 }

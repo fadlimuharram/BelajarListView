@@ -1,6 +1,7 @@
 package com.example.azurescarlet.belajarlistview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,5 +53,7 @@ public class MyAdapter extends ArrayAdapter<DataBahasa>{
         super(context,R.layout.row_layout, Values);
         this.bhs = Values;
     }
+
+
 
 }
