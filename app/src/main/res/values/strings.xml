@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BelajarListView</string>
+    <string name="Kata">Choose Your Favorite Programming Language</string>
+    <string name="deskripisigambar">This Is Picture</string>
 </resources>
